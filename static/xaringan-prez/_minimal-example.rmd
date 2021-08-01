@@ -1,0 +1,82 @@
+---
+title: "Xaringan minimal example"
+author: "zgfabian"
+output:
+  xaringan::moon_reader:
+    seal: true
+    css: [default, rutgers, rutgers-fonts]
+    lib_dir: ./lib
+    nature:
+      highlightLines: true
+      highlightStyle: zenburn
+      countIncrementalSlides: false
+---
+class: inverse
+
+## Aim
+
+In my [previous post](https://zgfabian.github.io/2021-04-28-xaringan-prez/) I tried to show how to deploy a xaringan presentation to a *Jekyll* site hosted on a *github.io* site. The following post is a minimal example of local deployment that is independent of any R IDE. You can execute it from a terminal like:
+
+```{sh, eval = FALSE}
+Rscript minimal-example.R
+```
+
+However, if you run the script outside Rstudio IDE, than you have to install [pandoc](https://www.pandoc.org) for your OS environment. RStudio is bundled with pandoc, and other dependencies (like javascript and css) are handled by `xaringan` itself.
+You can verify pandoc installation from a terminal with:
+
+```{sh, eval = FALSE}
+pandoc --version
+```
+
+---
+
+## Review of the `minimal-example.R`
+
+### Get `remark.js` with xaringan 
+
+Download `remark.js`. It can be a good idea to pin a specific version.
+
+```{r}
+setwd(".")
+dir.create("./lib", showWarnings = FALSE)
+xaringan::summon_remark(version = "0.14.1", to = "./lib/")
+list.files("./lib/")
+```
+
+--
+
+### Download or create a minimal Rmarkdown example
+
+```{r}
+url <- "https://gist.githubusercontent.com/ZGFabian/039aa35a6e9847b45e3c635ae747216a/raw/"
+download.file(url = url, destfile = "minimal-example.rmd")
+```
+
+If you would like to create for yourself, you can do it with `file.create()`, `file.edit()` functions.
+
+---
+
+### Render Rmarkdown to HTML and open in a browser
+
+After we got `minimal-example.rmd` to render Rmarkdown to HTML:
+
+```{r, results = "hide"}
+rmarkdown::render(input = 'minimal-example.rmd',
+                  output_format = 'xaringan::moon_reader',
+                  output_file = "minimal-example.html",
+                  output_dir = ".",
+                  clean = TRUE)
+# list.files("./lib/")
+```
+
+As you can see with `list.files("./lib/")` command, `render` created some extra folders in `lib` folder. We have two extra folders: "header-attrs-2.8" and "remark-css-0.0.1". It is just a technical note and you don't really have to care about. As a final step we check out our fresh presentation in a browser (firefox in the example):
+
+```{r, eval = FALSE}
+options(browser = "firefox") # any browser of your choice
+browseURL("minimal-example.html")
+```
+
+--
+
+## Demo ends here
+
