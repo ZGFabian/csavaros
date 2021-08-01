@@ -48,7 +48,7 @@ list.files("./lib/")
 ### Download or create a minimal Rmarkdown example
 
 ```{r}
-url <- "https://gist.githubusercontent.com/ZGFabian/039aa35a6e9847b45e3c635ae747216a/raw/"
+url <- "https://raw.githubusercontent.com/ZGFabian/zgfabian.github.io/gh-pages/static/xaringan-prez/_minimal-example.rmd"
 download.file(url = url, destfile = "minimal-example.rmd")
 ```
 
