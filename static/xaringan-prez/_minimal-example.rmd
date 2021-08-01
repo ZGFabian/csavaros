@@ -36,7 +36,7 @@ pandoc --version
 
 Download `remark.js`. It can be a good idea to pin a specific version.
 
-```{r}
+```{r eval = FALSE}
 setwd(".")
 dir.create("./lib", showWarnings = FALSE)
 xaringan::summon_remark(version = "0.14.1", to = "./lib/")
@@ -47,7 +47,7 @@ list.files("./lib/")
 
 ### Download or create a minimal Rmarkdown example
 
-```{r}
+```{r eval = FALSE}
 url <- "https://raw.githubusercontent.com/ZGFabian/zgfabian.github.io/gh-pages/static/xaringan-prez/_minimal-example.rmd"
 download.file(url = url, destfile = "minimal-example.rmd")
 ```
@@ -60,7 +60,7 @@ If you would like to create for yourself, you can do it with `file.create()`, `f
 
 After we got `minimal-example.rmd` to render Rmarkdown to HTML:
 
-```{r, results = "hide"}
+```{r,  eval = FALSE, results = "hide"}
 rmarkdown::render(input = 'minimal-example.rmd',
                   output_format = 'xaringan::moon_reader',
                   output_file = "minimal-example.html",
