@@ -15,7 +15,7 @@ In my [previous
 post](https://zgfabian.github.io/2021-04-28-xaringan-prez/) I tried to
 show how to deploy a xaringan presentation to a *Jekyll* site hosted on
 a *github.io* site. The following post is a minimal example of local
-deployment that is independent of any R IDE. You can execute it from a
+deployment [`minimal-example.R`](https://gist.github.com/ZGFabian/a017e662d3b3494f2e143db1c9c98d02) that is independent of any R IDE. You can execute it from a
 terminal like:
 
     Rscript minimal-example.R
@@ -81,6 +81,8 @@ a browser (firefox in the example):
 
 ## Appendix
 
+### R Session info
+
     R version 4.1.0 (2021-05-18)
     Platform: x86_64-pc-linux-gnu (64-bit)
     Running under: Manjaro Linux
@@ -98,3 +100,7 @@ a browser (firefox in the example):
      [9] jquerylib_0.1.4   bslib_0.2.5.1     rmarkdown_2.8     tools_4.1.0
     [13] stringr_1.4.0     xfun_0.23         yaml_2.2.1        compiler_4.1.0
     [17] htmltools_0.5.1.1 knitr_1.33        sass_0.4.0
+
+### Code (minimal-example.R)
+
+<script src="https://gist.github.com/ZGFabian/a017e662d3b3494f2e143db1c9c98d02.js"></script>
