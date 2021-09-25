@@ -9,7 +9,7 @@ output:
     preserve_yaml: true
 ---
 
-## Aim
+## Aims
 
 In my [previous
 post](https://zgfabian.github.io/2021-04-28-xaringan-prez/) I tried to
