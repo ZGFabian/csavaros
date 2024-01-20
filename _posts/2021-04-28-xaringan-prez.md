@@ -7,7 +7,7 @@ tags: [Jekyll, xaringan, presentation]
 excerpt: The xaringan R package is an R Markdown extension based on the remark.js JavaScript library to generate HTML5 presentations.
 ---
 
-[![naruto](../assets/img/etc/naruto-xaringan.jpg)
+![[naruto](../assets/img/etc/naruto-xaringan.jpg)
 
 {: .notice--info }
 >tl;dr -> open xaringan presentation]({{ site.baseurl }}/static/xaringan-prez/xaringan-prez.html)
