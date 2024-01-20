@@ -14,7 +14,7 @@ output:
 In my [previous
 post](https://zgfabian.github.io/2021-04-28-xaringan-prez/) I tried to
 show how to deploy a xaringan presentation to a *Jekyll* site hosted on
-a *github.io* site. The following post is a minimal example of local
+a *github.com*. This post provides a minimal example of local
 deployment [`minimal-example.R`](https://gist.github.com/ZGFabian/a017e662d3b3494f2e143db1c9c98d02) that is independent of any R IDE. You can execute it from a
 terminal like:
 
