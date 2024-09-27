@@ -37,4 +37,4 @@ Ha az Emacs shell-en pspp-t futtatunk, akkor a `CTR-ENTER` kombináció végreha
 
 A fenti programrészleteket az Emacs konfigurációs fájljához (`.emacs`) célszerű adnunk, amely Linux esetében általában a home (`~`) könyvárunkban található.
 
-[![Képernyőkép]({{ site.baseurl }}/img/24-02-23-emacs-pspp/company-pspp-640.png)]({{ site.baseurl }}/img/24-02-23-emacs-pspp/company-pspp.png)
+[![Képernyőkép](/img/24-02-23-emacs-pspp/company-pspp-640.png)](/assets/img/24-02-23-emacs-pspp/company-pspp.png)

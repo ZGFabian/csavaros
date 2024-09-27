@@ -28,3 +28,6 @@ codekit-config.json
 _asset_bundler_cache
 _site
 _draft
+
+#other
+_deploy-localy.txt

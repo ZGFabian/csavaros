@@ -3,7 +3,7 @@ layout: single
 classes: wide
 lang: en
 categories: [linux]
-tags: [cli]
+tags: [cli, find-replace, grep, sed]
 title: "Find-replace in multiple files recursively from Linux command line"
 ---
 
