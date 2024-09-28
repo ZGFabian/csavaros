@@ -1,0 +1,133 @@
+---
+title: Folyamgráf - a halmozott területdiagram sztenderdizált formája
+lang: hu
+output: md_document
+categories: Rstats, adatvizualizáció 
+tags: ggplot, ggstream, folyamgráf, streamgraph
+---
+
+## R kiegészítő csomagok betöltése
+
+Az R statisztikai program legnépszerűbb adatvizualizációs csomagja a `{ggplot2}`, amelyet használni fogunk a `{ggstream}` kiegészítővel az egyik ábránk elkészítéséhez. A `{dplyr}` az adatbázis szűréséhez, a [`{paletteer}`](https://pmassicotte.github.io/paletteer_gallery/) csomag pedig a megfelelő színskála kiválasztásához szükséges.
+
+```{r}
+library(ggplot2)
+library(dplyr) 
+# install.packages("paletteer")
+library(paletteer)
+# install.packages("ggstream")
+library(ggstream)
+```
+
+## Adatok
+
+A következőkben az Eurostat [migr_asyappctza](https://ec.europa.eu/eurostat/databrowser/view/migr\_asyappctza/default/table?lang=en) jelű adatbázisát használjuk, amely a menedékkérők számának alakulásáról tartalmaz idősoros adatokat. Az adatbázist előzőleg öt országra szűkítettük le: Németországra (DE), Görögországra (EL), Spanyolországra (ES), Magyarországra (HU) és Olaszországra (IT). Az adatok beolvasásához a `dput()` parancs kimenetét fogjuk használni a könnyebb reprodukálhatóság érdekében. 
+
+```{r, include = TRUE, echo = FALSE}
+df <- read.csv("/home/fabian/projects/tutorials/Rstat/ggplot/stream/migr.csv")
+
+str(df)
+df <- df[,2:4] # kitöröljük a felesleges X oszlopot
+dput(df)
+```
+
+```{r}
+df <- structure(list(geo = c("DE", "DE", "DE", "DE", "DE", 
+"DE", "DE", "DE", "DE", "DE", "EL", "EL", "EL", "EL", "EL", "EL", 
+"EL", "EL", "EL", "EL", "ES", "ES", "ES", "ES", "ES", "ES", "ES", 
+"ES", "ES", "ES", "HU", "HU", "HU", "HU", "HU", "HU", "HU", "HU", 
+"HU", "HU", "IT", "IT", "IT", "IT", "IT", "IT", "IT", "IT", "IT", 
+"IT"), time = c(2014L, 2015L, 2016L, 2017L, 2018L, 2019L, 2020L, 
+2021L, 2022L, 2023L, 2014L, 2015L, 2016L, 2017L, 2018L, 2019L, 
+2020L, 2021L, 2022L, 2023L, 2014L, 2015L, 2016L, 2017L, 2018L, 
+2019L, 2020L, 2021L, 2022L, 2023L, 2014L, 2015L, 2016L, 2017L, 
+2018L, 2019L, 2020L, 2021L, 2022L, 2023L, 2014L, 2015L, 2016L, 
+2017L, 2018L, 2019L, 2020L, 2021L, 2022L, 2023L), value = c(172945L, 
+441805L, 722270L, 198255L, 161885L, 142450L, 102525L, 148175L, 
+217735L, 329035L, 7585L, 11370L, 49875L, 56940L, 64975L, 74910L, 
+37860L, 22660L, 29125L, 57895L, 5460L, 14600L, 15570L, 33035L, 
+52730L, 115175L, 86380L, 62050L, 116135L, 160460L, 41215L, 174435L, 
+28215L, 3115L, 635L, 465L, 90L, 40L, 45L, 30L, 63655L, 82790L, 
+121185L, 126550L, 53440L, 35005L, 21330L, 45200L, 77200L, 130565L
+)), class = "data.frame", row.names = c(NA, -50L))
+```
+
+## Normál területdiagram (Simple areachart)
+
+A területdiagram tulajdonképpen levezethető a pontdiagramból a vonaldiagramon keresztül, hiszen nem más mint az x-tengely és a vonal közötti terület kitöltése ("fill"), kiszínezése 
+A normál területdiagramok több kategoriális (csoportosító) változó esetén átfedhetik egymást.
+
+```{r}
+
+```
+
+### Interaktív területdiagram
+
+cf `{dygraphs}` csomag, amely html output-ot 
+
+## Halmozott területdiagram (Stacked areachart)
+
+
+```{r}
+p1 <- ggplot(df, aes(x=time, y=value, fill=geo)) + 
+    geom_area() +
+    scale_fill_paletteer_d("nationalparkcolors::Acadia") +
+    scale_x_continuous(breaks = seq(2014, 2024, by=2)) +
+    expand_limits(x = c(2014, 2024)) +
+    scale_y_continuous(labels = scales::comma_format(big.mark = ",")) +
+    labs(title = "Stacked area chart of asylum applicants in selected EU countries",
+         x = element_blank(),
+         y = element_blank()) +
+    theme_minimal() +
+    theme(plot.title = element_text(hjust = 0.5),
+          legend.title = element_blank()) 
+
+p1
+```
+
+```{r, include = TRUE, echo = FALSE}
+ggsave("stacked-area.png", p1, device = "png")
+```
+
+![stacked](stacked-area.png)
+
+## 100 százalékig halmozott területdiagram
+
+
+
+## Folyamgráf (streamgraph)
+
+A [folyamgráf](http://en.wikipedia.org/wiki/Streamgraph) egy olyan halmozott területgráf, amely egy matematikai algoritmus szerint a központi, vízszintes tengely körül el van tolva, így folyamszerű, hullámzó alakot eredményez. Elsőként folyamgráfot a *New York Times* közölt 2008-ban Lee Byron munkája alapján. (A [közölt ábrájuk a mozifilmek bevételeit jelenítette](https://archive.nytimes.com/www.nytimes.com/interactive/2008/02/23/movies/20080223_REVENUE_GRAPHIC.html) meg.) A módszertani részleteket lásd Byron és Wattenberg (2008)[^1].
+A folyamgráf esztétikailag vonzóbb és az adatok trendjéről, volumenéről informativabb, mint a sávdiagram. Egy "nagy képet" nyújt. De amit nyerünk a réven, elveszthetjük a vámon: nem lehet az eredetileg megfigyelt skálán számszerűsítve értelmezni az adatokat. Tehát a vertikális skála pozitív és negatív értékeit ne próbáljuk a szokásos módon értelmezni. Fókuszáljunk a hullámok hosszára (időtartamára), a színekre (kategóriákra) és a hullámok legmagasabb pontjára, az áradás tetőzésére és az apályokra is.
+A folyamgráf akkor lehet igazán hasznos, ha sok kategóriát (pld. mozifilmet) vizsgálunk, hosszú időszakon keresztül.
+
+[^1]:Byron, Lee; Wattenberg, Martin (November–December 2008). "Stacked Graphs – Geometry & Aesthetics". IEEE Transactions on Visualization and Computer Graphics. 14 (6). IEEE Computer Society: 1245–1252. doi:10.1109/TVCG.2008.166. ISSN 1077-2626. PMID 18988970. S2CID 15281429.
+
+```{r}
+p2 <- ggplot(df1, aes(x = time, y = value, fill = geo)) +
+   geom_stream(color = "black") +
+   scale_fill_paletteer_d("nationalparkcolors::Acadia") +
+    scale_x_continuous(breaks = seq(2014, 2024, by=2)) +
+    expand_limits(x = c(2014, 2024)) +
+    scale_y_continuous(labels = scales::comma_format(big.mark = ",")) +
+    labs(title = "Streamgraph of asylum applicants in selected EU countries",
+         x = element_blank(),
+         y = element_blank()) +
+    theme_minimal() +
+    theme(plot.title = element_text(hjust = 0.5),
+          legend.title = element_blank()) 
+
+p2
+```
+
+# Interaktív folyamgráf
+
+Online publikációhoz érdemes valamilyen interaktív megoldást találni. Ilyen például a [Highchart.js](https://www.highcharts.com/demo/highcharts/streamgraph), avagy a [Flourish]().
+
+```{html}
+<div class="flourish-embed flourish-chart" data-src="visualisation/19575327"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/19575327/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+```
+
+## Alternatívák
+
+z-score számítás és minmax normalzálás. Bővebben lásd: Kehl Dániel. 2023. [Valószínűségszámítás és statisztika.](https://valstat.ktk.pte.hu/zscore.html) Pécsi Tudományegyetem Közgazdaságtudományi Kar. 
