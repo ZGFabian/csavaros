@@ -42,7 +42,7 @@ p1 <- ggplot(df, aes(x=time, y=value, fill=geo)) +
     labs(title = "Halmozott területdiagram: Menedékkérők száma\n egyes EU országokban",
          x = element_blank(),
          y = element_blank()) +
-    theme_minimal() +
+    theme_bw() +
     theme(plot.title = element_text(hjust = 0.5),
           legend.title = element_blank()) 
 
@@ -50,7 +50,7 @@ p1
 
 ###
 
-path <- paste0(here(),"/_drafts/_tmp")
+path <- paste0(here(),"/_drafts/_tmp/")
 ggsave(paste0(path,"stacked-area.png"), p1, device = "png")
 stck <- image_read(paste0(path, "stacked-area.png"))
 stck800 <- image_scale(stck, "800x")
@@ -77,7 +77,7 @@ p2 <- ggplot(df, aes(time, value, fill=geo)) +
     labs(title = "Egyszerű területdiagram: Menedékkérők száma\n egyes EU országokban",
          x = element_blank(),
          y = element_blank()) +
-    theme_minimal() +
+    theme_bw() +
     theme(plot.title = element_text(hjust = 0.5),
           legend.title = element_blank()) 
 
@@ -112,7 +112,7 @@ p3 <- ggplot(df1, aes(x=time, y=percentage, fill=geo)) +
     labs(title = "Arányosan (százalékosan) halmozott területdiagram: Menedékkérők száma\n egyes EU országokban",
          x = element_blank(),
          y = element_blank()) +
-    theme_minimal() +
+    theme_bw() +
     theme(plot.title = element_text(hjust = 0.5),
           legend.title = element_blank())
 p3
@@ -139,18 +139,29 @@ p4 <- ggplot(df, aes(x = time, y = value, fill = geo)) +
     labs(title = "Folyamgráf: Menedékkérők száma\n egyes EU országokban",
          x = element_blank(),
          y = element_blank()) +
-    theme_minimal() +
+    theme_bw() +
     theme(plot.title = element_text(hjust = 0.5),
           legend.title = element_blank())
 
 p4
-path
-dirname
+
 ggsave(paste0(path,"streamgraph.png"), p4, device = "png")
 streamg <- image_read(paste0(path, "streamgraph.png"))
 streamg800 <- image_scale(streamg, "800x")
 streamg400 <- image_scale(streamg, "400x")
 
-image_write(streamg800, path = paste0(dirname, "/proportional-area800.png"))
-image_write(streamg400, path = paste0(dirname, "/proportional-area400.png"))
+image_write(streamg800, path = paste0(dirname, "/streamgraph800.png"))
+image_write(streamg400, path = paste0(dirname, "/streamgraph400.png"))
+
+getwd()
+
+rmarkdown::render(input = "./assets/source/2024-10-01-folyamgraf.Rmd", rmarkdown::md_document(variant = "gfm", preserve_yaml = TRUE), output_dir = "./_drafts/")
+
+rmarkdown::render(input = "./assets/source/2024-10-01-folyamgraf.Rmd", rmarkdown::md_document(variant = "gfm", preserve_yaml = TRUE), output_dir = "./_drafts/", clean = FALSE)
+
+
+## deployment
+knitr::knit(input = "./assets/source/2024-10-01-folyamgraf.Rmd", output = "./_drafts/2024-10-01-folyamgraf.md")
+
+knitr::knit(input = "./assets/source/2024-10-01-folyamgraf.Rmd", output = "./_posts/2024-10-01-folyamgraf.md")
 
