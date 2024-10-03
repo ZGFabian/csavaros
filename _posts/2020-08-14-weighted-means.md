@@ -9,7 +9,7 @@ lang: en
 The following simple example will use European Social Survey (ESS) integrated datafile in order to plot unweighted and weighted distribution of the generalized trust variable (`ppltrst`).
 [![question]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/q-ppltrst.png)](https://www.europeansocialsurvey.org/docs/round1/fieldwork/source/ESS1_source_main_questionnaire.pdf)
  
-Here are the two plots. 
+TLDR; There are no significant differences between weighted and unweighted distribution of generalized trust among V4 countries.
 
 [![p1]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/p1-small.png)]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/p1.png)
 [![p2]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/p2-small.png)]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/p2.png)
@@ -94,7 +94,7 @@ p1
 
 ### Unweighted means of generalized trust in V4 countries, 2002-2016
 
-![p1](/img/20-08-11-ess-plots/p1.png)
+![p1]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/p1.png)
 
 ```r
 d1w <- iess %>%
@@ -138,7 +138,7 @@ p2 <- p2 + labs(title = ppl_tit,
 p2 <- p2 + theme(text = element_text(family = "Ubuntu Mono"))
 ```
 
-![p2](/img/20-08-11-ess-plots/p2.png)
+![p2]({{ site.baseurl }}/assets/img/20-08-11-ess-plots/p2.png)
 
 [^hadley]: "The philosophy of the tidyverse is similar to and inspired by the “unix philosophy” (Raymond 2003), a set of loose principles that ensure most command line tools play well together." Ross Z, Wickham H, Robinson D. 2017. Declutter your R workflow with tidy tools. PeerJ Preprints 5:e3180v1 [https://doi.org/10.7287/peerj.preprints.3180v1](https://doi.org/10.7287/peerj.preprints.3180v1) 
 
