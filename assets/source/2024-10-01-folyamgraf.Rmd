@@ -48,7 +48,7 @@ Online publikációkhoz használhatunk interaktív megoldásokat. Ilyen példáu
 
 <div class="flourish-embed flourish-chart" data-src="visualisation/19575327"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/19575327/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
 
-(A posztban látható ábrák készítéséhez használt R program letölthető [innen]({{ site.baseurl }}/assets/source/2024-10-01-folyamgraf.R), a poszt forrása R-markdown formátumban pedig [innen]({{ site.baseurl }}/assets/source/2024-10-01-folyamgraf.Rmd).)
+(A posztban látható ábrák készítéséhez használt R program letölthető [innen]({{ site.baseurl }}/assets/source/2024-10-01-folyamgraf.R), a poszt forrása (R-markdown) tömorített (zip) formátumban pedig [innen]({{ site.baseurl }}/assets/source/2024-10-01-folyamgraf.zip).)
 
 [^1]:Byron, Lee; Wattenberg, Martin (November–December 2008). "Stacked Graphs – Geometry & Aesthetics". IEEE Transactions on Visualization and Computer Graphics. 14 (6). IEEE Computer Society: 1245–1252. doi:10.1109/TVCG.2008.166. ISSN 1077-2626. PMID 18988970. S2CID 15281429.
 
