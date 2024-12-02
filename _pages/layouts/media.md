@@ -57,17 +57,19 @@ The image above, though 1200px wide, should not overflow the content area. It sh
 
 ![image-right]({{ site.baseurl }}/assets/img/site/image-alignment-300x200.jpg){: .align-right}
 
-
 #### Markdown image
+
 ![Fox]({{ site.baseurl }}/assets/img/site/mrfox.jpg)
 
 {: .notice--info}
 Note: Just [certain markdown implementations](https://stackoverflow.com/questions/14675913/changing-image-size-in-markdown) support image resizing. This paragraph was formatted by `{: .notice--info}` liquid tag.
 
 #### HTML image resized
+
 <img src="{{ site.baseurl }}/assets/img/site/blabla-orange.png" alt="Blabla" width="50">
 
 #### Liquid figure with caption
+
 {% include figure image_path="/assets/img/site/mrfox.jpg" alt="this is a placeholder image" caption="Wes Anderson's movie" %}
 {: .notice--warning}
 Note: There is plugin called [`jekyll-image-size`](https://github.com/generalui/jekyll-image-size) that can do the resizing without any CSS. This paragraph was formatted by `{: .notice--warning}` liquid tag.
@@ -75,13 +77,16 @@ Note: There is plugin called [`jekyll-image-size`](https://github.com/generalui/
 ### Image galleries
 
 #### Basic
+
 {% include gallery caption="This is a sample gallery with **Markdown support**." %}
 
-#### Full conttainer width 
+#### Full container width
+
 (`class="full"`)
 {% include gallery class="full" caption="This is another sample gallery with *Markdown support*." %}
 
-#### Half-layout with unique id 
+#### Half-layout with unique id
+
 (`layout="half`) (`id="gallery-two"`)
 {% include gallery id="gallery-two" layout="half" caption="This is a sample gallery with **Markdown support**." %}
 
@@ -93,6 +98,7 @@ Note: There is plugin called [`jekyll-image-size`](https://github.com/generalui/
 **Note:** Vimeo and google drive contents are also supported.
 
 ### Just embed an iframe as html (Coub example)
+
 <iframe src="//coub.com/embed/2mts8f?muted=false&autostart=false&originalSize=false&startWithHD=false" frameborder="0" width="640" height="360" allow="autoplay"></iframe>
 
 ### Video in header
@@ -111,13 +117,11 @@ Minimal mistake [documentation](https://mmistakes.github.io/minimal-mistakes/spl
 
 ### Feature row
 
-Feature row, an extension of to splash layout is 
+Feature row, an extension of to splash layout is
 
 {: .btn .btn--info}
 presented [here]({{ site.baseurl }}/post-archive-feature-rows/).
 
-
 ## Resources
 
 [GitHub Flavored Markdown](https://github.github.com/gfm/)
-
