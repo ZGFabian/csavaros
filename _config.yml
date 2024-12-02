@@ -12,14 +12,14 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : dark # "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : sunrise # "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "Lost & Found"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Zoltán Fábián"
+name                     : "Csavaros"
 description              : "An amazing website."
 url                      : https://zgfabian.github.io # the base hostname & protocol for your site e.g. "https://YOURNAME.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -70,7 +70,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : zooltan_fabian
+  username               : # zooltan_fabian
 facebook:
   username               :
   app_id                 :
@@ -93,10 +93,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "zgfabian"
-  avatar           : "/assets/img/site/blabla-orange.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Good **luck** & have fun!"
-#  location         : "Hungary"
+  name             : # "csavaros"
+  avatar           : # "/assets/img/site/blabla-orange.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : # "Good **luck** & have fun!"
+  location         : "Hungary"
   email            :
   links:
     - label: "Home"
@@ -104,10 +104,10 @@ author:
       url: "/"
     - label: "About"
       icon: "far fa-fw fa-address-card"
-#      url: "/about/"
+      url: "/about/"
     - label: "Old blog"
       icon: "far fa-fw fa-address-card"
-      url: "https://zgfabian.github.io/bj-blog/"
+      #      url: "https://zgfabian.github.io/bj-blog/"
     - label: "Tags"
       icon: "fas fa-fw fa-tags"
       url: "/tags/"
@@ -128,20 +128,20 @@ author:
       url: "https://github.com/zgfabian"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/zooltan_fabian"
+      url: "https://instagram.com/csavaros"
 
 # Site Footer
 footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: https://www.twitter.com/zooltan_fabian
+      # url: https://www.twitter.com/zooltan_fabian
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: https://www.github.com/zgfabian
+      # url: https://www.github.com/zgfabian
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -150,7 +150,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: https://www.instagram.com/zooltan_fabian
+      url: https://www.instagram.com/csavaros
 
 
 # Reading Files
@@ -189,7 +189,7 @@ keep_files:
   - .git
   - .svn
 encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown_ext: "markdown,mkdown,md"
 
 
 # Conversion
